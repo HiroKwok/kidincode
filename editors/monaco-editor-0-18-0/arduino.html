@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+</head>
+<style type="text/css">       
+	html,body
+	{
+        margin: 0;           
+	    padding: 0;
+        border:0px;
+        overflow: hidden;
+    }
+</style>
+<body>
+    <div id="container" style="width:100%;height:100vh;border:0px;"></div>
+    <script src="./monaco-editor/dev/vs/loader.js"></script>
+    <script type="text/javascript" src="../../libs.json"></script>
+    <script src="./suggestions-arduino.js"></script>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <script>
+
+        var editor;
+        var lineNumber;
+        var column;
+        var isChange = false;
+        
+        //import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js';
+        require.config({ paths: { 'vs': './monaco-editor/dev/vs' }});
+        require(['vs/editor/editor.main'], function() 
+        {
+            monaco.editor.defineTheme('myCoolTheme', 
+            {
+                base: 'vs-dark',
+                //base: 'vs',
+                inherit: true,
+                rules: [
+                    { token: 'custom-info', foreground: '#808080' },
+                    { token: 'custom-error', foreground: '#FF0000', fontStyle: 'bold' },
+                    { token: 'custom-notice', foreground: '#FFFFFF' , fontStyle: 'bold' },
+                    { token: 'custom-date', foreground: '#008800' },
+                    { token: 'custom-command', foreground: '#FF9900', fontStyle: 'bold' },
+                    { token: 'custom-compile', foreground: '#66CCFF' },
+                    { token: 'custom-upload', foreground: '#FFCC66' },
+
+                    { token: 'arduino-keywords', foreground: '#e439a4' , fontStyle: 'bold' },
+                    { token: 'arduino-functions', foreground: '#d185de' }
+                ],
+                colors: 
+                {
+                    /*
+                    'editor.background': '#1F1F1F',
+                    //'editor.foreground': '#000000',
+                    //'editor.background': '#EDF9FA',
+                    'editorCursor.foreground': '#8B0000',
+                    'button.background':'#FF0000',
+                    'editor.lineHighlightBackground': '#0000FF20',
+                    //'editorLineNumber.foreground': '#008800',
+                    'editor.selectionBackground': '#88000030',
+                    'editor.inactiveSelectionBackground': '#88000015'
+                    */
+                }
+            });
+
+            // Register a completion item provider for the new language
+            monaco.languages.registerCompletionItemProvider('cpp', 
+            {
+                provideCompletionItems: () => 
+                {
+                    var suggestions = getSuggestions();
+                    return { suggestions: suggestions };
+                }
+            });
+
+            // Through the options literal, the behaviour of the editor can be easily customized.
+            // Here are a few examples of config options that can be passed to the editor.
+            // You can also call editor.updateOptions at any time to change the options.
+            editor = monaco.editor.create(document.getElementById("container"), 
+            {
+                value: "// First line\nvoid setup()\n{\n\tpinMode(13, OUTPUT);\n}\n" + "\nvoid loop()\n{\n\tdigitalWrite(13, HIGH);\n}\n// Last line",
+                language: "cpp",
+                fontSize: 18,
+                lineNumbers: "on",
+                roundedSelection: false,
+                scrollBeyondLastLine: false,
+                readOnly: false,
+                //theme: "vs-dark",
+                theme: "myCoolTheme",
+                // 自动换行
+                // --Hard Wrapping start--
+                wordWrap: 'wordWrapColumn',
+                wordWrapColumn: 100,
+                // Set this to false to not auto word wrap minified files
+                wordWrapMinified: true,
+                // try "same", "indent" or "none"
+                wrappingIndent: "indent",
+                //--Hard Wrapping end--
+                automaticLayout:true,
+                // Accepted values: 'auto', 'visible', 'hidden'.
+		        // Defaults to 'auto'
+                vertical: 'hidden',
+                horizontal: 'hidden'
+            });
+
+            window.onresize = function() 
+            {
+			    //editor.layout();
+            };
+        
+            // 监听编辑器内容变化
+            editor.onDidChangeModelContent(function (e) 
+            {
+                isChange = true;
+            });
+
+            // 实时监控光标状态
+            editor.onDidChangeCursorPosition((e) => 
+            {
+                lineNumber  = editor.getPosition().lineNumber;
+                column      = editor.getPosition().column;
+            });
+        });
+
+    
+        var getCode = function()
+        {
+            var code = editor.getValue();
+            return code;
+        };
+
+        var getLineNumber = function()
+        {
+            return lineNumber;
+        }
+
+        var getColumn = function()
+        {
+            return column;
+        }
+
+        var getIsChange = function()
+        {
+            return isChange;
+        }
+
+        var setIsChange = function(state)
+        {
+            isChange = state;
+        }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "name": "kidin",
+  "version": "1.0.0-pre-alpha",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "build": {
+    "appId": "com.tansor.kidincode",
+    "files": [
+      "!hardware",
+      "!examples"
+    ],
+    "compression": "store",
+    "asar": true,
+    "asarUnpack": [
+      "hardware",
+      "examples"
+    ],
+    "extraResources": [
+      {
+        "from": "./hardware",
+        "to": "../hardware"
+      },
+      {
+        "from": "./examples",
+        "to": "../examples"
+      }
+    ],
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "./images/kd.ico",
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "kidin"
+  ],
+  "author": "Tansor",
+  "license": "GPL-3",
+  "devDependencies": {
+    "electron": "^8.0.0"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.5.1",
+    "jsonfile": "^5.0.0",
+    "mousetrap": "^1.6.5"
+  }
+}

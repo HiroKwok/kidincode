@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>KIDIN CODE</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="kd-body">
+    <div class="kd-titlebar" id="titleBar">
+        <div class = "kd-icon-area" id = "iconArea" style="display: none;"></div>
+        <div class="logo fl" style="display:inline;">
+            <img src="" alt="">
+            <span></span>
+        </div>
+        <!--
+        <ul class="kd-menu" style="-webkit-app-region: no-drag; white-space:nowrap;">
+            <li>菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+            <li>菜单4</li>
+        </ul>
+        -->
+        <div class="kd-title" id="titleTxt"></div>
+        <div class="min_max_close fr" style="-webkit-app-region:no-drag; margin-right:0px; float:right;">
+            <img src="./images/min.png" id="min" alt="" style="-webkit-user-drag: none; display: none;">
+            <img src="./images/max.png" id="max" alt="" style="-webkit-user-drag: none; display: none;">
+            <img src="./images/close.png" id="close" alt="" style="-webkit-user-drag: none;">
+        </div>
+    </div>
+    <div class = "kd-splash" id = "splash" >
+        <img src="./images/splash.png" style="display: inline-block; vertical-align: middle;"/>
+        <div style = "display: flex; align-items: center; justify-content: center; margin-top: 100px;">
+            <div class='wrapper'>
+                <div></div>
+            </div>
+            <div class='wrapper'>
+                <div></div>
+            </div>
+            <div class='wrapper'>
+                <div></div>
+            </div>
+            <div class='wrapper'>
+                <div></div>
+            </div>
+            <div class='wrapper'>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div id = "main" style="display: none;">
+        <div class="kd-tabmenu">
+            <div>
+                <!-- <span class="kd-tab-item kd-tab-item-first" id="tabFile" style="background-color: #1E1E1E;">项目</span> -->
+                <span class="kd-tab-item kd-tab-item-first" id="tabFile" style="background-color: #1E1E1E;"></span>
+                <span class="kd-tab-item" id="tabCode" style="display:none;">代码</span>
+                <span class="kd-tab-item" id="tabBlock" style="display:none;">积木</span>
+                <span class="kd-tab-item" id="tabComm" style="display:none;">调试</span>
+                <span class="kd-tab-item" id="tabUpload" style="display:none;">上传</span>
+            </div>
+        </div>
+        <div class="kd-tab-content">
+            <div class="kd-tab-content-sub" id="contentFile" style="background-color: #252526;">
+                <div class="kd-file-menu">
+                    <div class="kd-file-menu-item" id = "fileNew">新建</div>
+                    <div class="kd-file-menu-item" id = "fileOpen">打开</div>
+                    <div class="kd-file-menu-item" id = "fileSave">保存</div>
+                    <div class="kd-file-menu-item" id = "fileSaveAs">另存为</div>
+                    <div class="kd-file-menu-item" id = "fileExample">范例</div>
+                    <div class="kd-file-menu-item kd-file-menu-item-bottom-2" id = "fileSetting">选项</div>
+                    <div class="kd-file-menu-item kd-file-menu-item-bottom"   id = "fileAbout">关于</div>
+                </div>
+                <div class="kd-file-contents" style="height: 100%;">
+                    <div class="kd-file-content" id = "pageNew" style="height: 100%; -webkit-user-select: none;">
+                        <div style="float:left; width:55%; padding-left: 40px; padding-top: 30px;">
+                            <div>
+                                <button style="width:175px; height:40px; margin-bottom: 10px; display: none;" id = "btnCreatePrj">创建一个新项目</button>
+                                <span><img src="./images/loading.gif" width="14px" height="14px" id = "aniLoading" style="margin-left: 10px; padding-left: 13px;"/></span>
+                            </div>
+                            <div style = "color:#CCCCCC; margin-top: 10px; margin-left: 10px;"><b>开发模式：</b></div>
+                            <div>
+                                <div class="kd-prj-container"><button style="width:165px; height:50px; display: inline-block;" id = "btnModeCode">代码模式</button></div>
+                                <div class="kd-prj-container"><button style="width:165px; height:50px; display: inline-block;" id = "btnModeBlock">积木模式</button></div>
+                            </div>
+                            <div style = "color:#CCCCCC; margin-top: 20px; margin-bottom: 10px; margin-left: 10px;"><b>项目类型：</b></div>
+                            <div class="kd-prj-container">
+                                <div id = "btnTypeArduino" class = "kd-prj-button"><a><img src = "./images/logo-arduino.png"  width="165px" height="165px"/></a></div>
+                                <div class="kd-prj-title">Arduino - 项目</div>
+                            </div>
+                            <div class="kd-prj-container">
+                                <div id = "btnTypeMicrobit" class = "kd-prj-button"><a><img src = "./images/logo-microbit.png" width="165px" height="165px"/></a></div>
+                                <div class="kd-prj-title">micro:bit - 项目</div>
+                            </div>
+                            <div class="kd-prj-container">
+                                <div id = "btnTypeMicroPython" class = "kd-prj-button"><a><img src = "./images/logo-micropython.png" width="165px" height="165px"/></a></div>
+                                <div class="kd-prj-title">MicroPython - 项目</div>
+                            </div>
+                        </div>
+                        <div style="display: inline; display: none; -webkit-user-select: none;">
+                            <div style = "color:#CCCCCC; padding-top: 40px; padding-bottom: 5px;"><b>教程资源：</b></div>
+                            <div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第01讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第02讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第03讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第04讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第05讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第06讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第07讲：快速入门Kidin Code</button></div>
+                                <div><button style="width:350px; height:35px; cursor: pointer;" id = "">第08讲：快速入门Kidin Code</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kd-file-content" id = "pageExample" style="height: 100%; display: none; -webkit-user-select: none;">
+                        <div style="margin-left: 144px; padding-top: 25px; position:fixed; height: calc(100% - 120px); width: calc(100% - 145px); overflow-y: auto;">
+                            <div style = "color:#CCCCCC;">
+                                <span><b>项目：</b></span>
+                                <span id="tagLevel01"></span>
+                            </div>
+                            <div style = "color:#CCCCCC; margin-bottom: 20px;">
+                                <span><b>分类：</b></span>
+                                <span id="tagLevel02"></span>
+                            </div>
+                            <div id="tagPrjs" style="margin-left: 45px;"></div>
+                        </div>
+                    </div>
+                    <div class="kd-file-content" id = "pageSetting" style="height: 100%; display: none; -webkit-user-select: none;">
+                        <div style = "color:#CCCCCC; width: 300px; padding-top: 30px; padding-left: 180px; font-size: 22px;">
+                            通用设置
+                        </div>
+                        <div style = "color:#CCCCCC; padding-top: 30px; padding-left: 200px;">
+                            <form action="" style = "padding-bottom: 20px;">
+                                &emsp;&emsp;语言：
+                                <select name="kdLang" style = "font-size: 16px; width: 200px; height: 30px;">
+                                    <option value="zh-hans" selected>简体中文</option>
+                                    <option value="zh-hant">繁体中文</option>
+                                    <option value="en" >English</option>
+                                </select>
+                            </form>
+                            <form style = "padding-bottom: 20px;">
+                                临时目录：<input type="text" name="tmpDir" style = "font-size: 16px; width: 700px; height: 30px; margin-left: 5px;">
+                            </form>
+                            <div style = "color:#AAAAAA; padding-bottom: 20px; margin-left: 75px;">编译过程中所产生文件的临时放置目录</div>
+                        </div>
+                        <div style = "color:#CCCCCC; width: 300px; padding-top: 10px; padding-left: 180px; font-size: 22px;">
+                            编辑器
+                        </div>
+                        <div style = "color:#CCCCCC; padding-top: 30px; padding-left: 200px;">
+                            <form action="" style = "padding-bottom: 20px;">
+                                &emsp;&emsp;主题：
+                                <select name="kdTheme" style = "font-size: 16px; width: 150px; height: 30px;">
+                                    <option value="vs-dark" selected>vs-dark</option>
+                                    <option value="vs">vs</option>vs
+                                    <option value="hc-dark" >hc-dark</option>
+                                </select>
+                            </form>
+                            <form action="" style = "padding-bottom: 20px;">
+                                &emsp;&emsp;字号：
+                                <select name="kdFontSize" style = "font-size: 16px; width: 60px; height: 30px;">
+                                    <option value="12">12</option>
+                                    <option value="14">14</option>
+                                    <option value="16" selected>16</option>
+                                    <option value="18">18</option>
+                                    <option value="20">20</option>
+                                    <option value="22">22</option>
+                                    <option value="24">24</option>
+                                </select>
+                            </form>
+                            <form action="" style = "padding-bottom: 20px;">
+                                &emsp;&emsp;编码：
+                                <select name="kdEncode" style = "font-size: 16px; width: 150px; height: 30px;">
+                                    <option value="UTF-8" selected>UTF-8</option>
+                                </select>
+                            </form>
+                            <form action="" style = "padding-bottom: 20px;">
+                                &emsp;&emsp;缩进：
+                                <select name="kdTab" style = "font-size: 16px; width: 150px; height: 30px;">
+                                    <option value="4" selected>4</option>
+                                </select>
+                            </form>
+                            <form action="" style = "padding-bottom: 20px;">
+                                &emsp;&emsp;行数：
+                                <select name="kdTab" style = "font-size: 16px; width: 150px; height: 30px;">
+                                    <option value="true" selected>显示</option>
+                                    <option value="false" >隐藏</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div style = "color:#CCCCCC; padding-top: 25px; padding-left: 200px;"><button id="saveOpt" style="width:175px; height:40px; margin-left: 74px;">保存设置</button></div>
+                    </div>
+                    <div class="kd-file-content" id = "pageAbout" style="height: 100%; display: none; -webkit-user-select: none;">
+                        <div style="position: fixed; width : calc(100% - 80px); height:100%; margin-left: 85px; text-align: center; line-height: 600px;">
+                            <img src="./images/splash.png"/>
+                        </div>
+                        <div style="position: fixed; width : calc(100% - 80px); height:100%; margin-left: 85px; margin-top: 350px; text-align: center; line-height: 40px; color:#DDDDDD;">
+                            <div>Kidin Code 由 Tansor 团队开发、调试及发布。</div>
+                            <div>Kidin Code 遵从GPL 3.0协议开放源码，在遵照指定约束条件下您可以自由传播和修改。</div>
+                            <div>当前版本：1.0.0-pre-alpha</div>
+                            <div>kidincode.tansor.cn</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kd-tab-content-sub" id="contentCode" style="display:none; padding-top: 15px; padding-top: 1px;-webkit-user-select: none;">
+                <!-- <webview id="foo2" src="./resources/monaco-editor-0.18.0/editor.html" style="width:100%; height:100%"></webview> -->
+                <iframe name="codeEditor" id="codeEditor" src="" style="width:100%; height:100%;" frameborder="no" onload="editorLoadComplete()"></iframe>
+            </div>
+            <div class="kd-tab-content-sub" id="contentComm" style="display:none; -webkit-user-select: none;">
+                <iframe name="webSerialTools" id="webSerialTools" src="" style="overflow-y:hidden; width:100%; height:100%;" frameborder="no" onload="commLoadComplete()"></iframe>
+            </div>
+            <div class="kd-tab-content-sub" id="contentUpload" style="display:none; -webkit-user-select: none;">
+                <div id="uploadPanel-arduino">
+                    <nav class="mynav">
+                        <ul>
+                            <li>
+                                <button id="listCom" style="width:120px">未连接</button>
+                                <button id="listCom-2" style="width:30px;margin-left: -10px;">▼</button>
+                                <ul class="dropdown-m" id="dropdown-com" style="width:133px">
+                                    <!--
+                                    <li><a href="#">COM1</a><li>
+                                    <li><a href="#">COM3</a><li>
+                                    -->
+                                </ul>
+                            </li>
+                            <li><button style="width:60px" id="btnUpdate">更新</button></li>
+                            <li>
+                                <button id="listBoard" style="width:300px;">No Board Info.</button>
+                                <button id="listBoard-2" style="width:30px;margin-left: -10px;">▼</button>
+                                <ul class="dropdown-m" id="dropdown-board" style="width:263px">
+                                    <!--
+                                    <li><a href="#">Arduino UNO</a><li>
+                                    <li><a href="#">Arduino Nano</a><li>
+                                    <li><a href="#">Arduino Mini Pro</a><li>
+                                    <li><a href="#">Arduino Leonardo</a><li>
+                                    -->
+                                </ul>
+                            </li>
+                            <li><button style="width:60px" id="btnCompile">编译</button></li>
+                            <li><button style="width:60px" id="btnUpload">上传</button></li>
+                            <li><button style="width:60px" id="btnStop">停止</button></li>
+                            <li><button style="width:60px" id="btnClear">清除</button></li>
+                        </ul>
+                        <div  style="clear:both"></div>
+                    </nav>
+                </div>
+                <div id="uploadPanel-microbit" style="display:none;"></div>
+                <div id="uploadPanel-microPython" style="display:none;"></div>
+                <div class="kd-progress-bar">
+                    <div class="kd-progress" id="progress"></div>
+                </div>
+                <div style="height:10px;"></div>
+                <iframe name="consoleEditor" id="consoleEditor" src="" style="overflow-y:hidden; width:100%; height: calc(100% - 75px);" frameborder="no" onload="consolLoadComplete()"></iframe>
+            </div>
+
+            <div class="kd-tab-content-sub" id="contentBlock" style="display:none; -webkit-user-select: none;">
+                <!-- 最新的pxt-blockly -->
+                <!-- <webview id="foo" src="./pxt-blockly/pxt-blockly-develop/tests/playground.html" style="width:100%; height:100%"></webview> -->
+                <!-- BuddyBlockly的pxt-blockly-->
+                <!-- <webview id="foo" src="./resources/blockly-pxt/pxt-blockly/app/index2.html" style="width:100%; height:100%;"></webview> -->
+                <iframe name="blockEditor" id="blockEditor" src="" style="overflow-y:hidden; width:100%; height:100%; display: none; " frameborder="no" onload="blockLoadComplete()"></iframe>
+                <div id="blockLoadAni" style = "display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <div class='wrapper'><div></div></div>
+                    <div class='wrapper'><div></div></div>
+                    <div class='wrapper'><div></div></div>
+                    <div class='wrapper'><div></div></div>
+                    <div class='wrapper'><div></div></div>
+                </div>
+                <!-- <iframe name="blockEditor" id="" src="./resources/blockly-pxt/pxt-blockly/app/index2.html?lang=en_BD" style="overflow-y:hidden; width:100%; height:100%;" frameborder="no" onload="blockLoadComplete()"></iframe>-->
+            </div>
+        </div>
+        <div class="kd-footer" id = "footer" style="display:none;">
+            <div id="footer-code">
+                <span>状态：正常</span>
+                <span>&nbsp&nbsp&nbsp&nbsp</span>
+                <span>模式：代码</span>
+                <span>&nbsp&nbsp&nbsp&nbsp</span>
+                <span id="footer-msg" ></span>
+                <span style="margin-right:70px; float:right;">
+                    <span>行 </span>
+                    <span id="footer-line" ></span>
+                    <span>,&nbsp&nbsp</span>
+                    <span>列 </span>
+                    <span id="footer-column" ></span>
+                    <span>&nbsp&nbsp&nbsp&nbsp</span>
+                    <span>空格：4&nbsp&nbsp&nbsp&nbsp</span>
+                    <span style=>UTF-8</span>
+                </span>
+            </div>
+            <div id="footer-block" style="display: none;">
+                <span>状态：正常</span>
+                <span>&nbsp&nbsp&nbsp&nbsp</span>
+                <span>模式：积木</span>
+                <span>&nbsp&nbsp&nbsp&nbsp</span>
+            </div>
+            <div id="footer-comm" style="display: none;"></div>
+            <div id="footer-upload" style="display: none;">
+                <span>状态：</span><span id="uploadMsg"></span>
+                <span>&nbsp&nbsp&nbsp&nbsp</span>
+            </div>
+        </div>
+    </div>
+    <script src="./renderer.js"></script>
+    <script src="./kidin.js"></script>
+    <script src="./config.js"></script>
+    <script src="./gui.js"></script>
+    <script src="./output.js"></script>
+    <script src="./device.js"></script>
+    <script src="./arduino.js"></script>
+    <script src="./project.js"></script>
+    <script src="./comm.js"></script>
+</body>
+</html>

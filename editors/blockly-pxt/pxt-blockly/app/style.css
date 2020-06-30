@@ -1,0 +1,261 @@
+html, body
+{
+	height: 100%;
+}
+
+body
+{
+	background-color: #fff;
+	font-family: sans-serif;
+	overflow: hidden;
+	margin: 0;
+}
+
+h1
+{
+	font-weight: normal;
+	font-size: 140%;
+}
+
+#blocklyDiv
+{
+	/* height: 95%; */
+    width: 100%;
+    height: 100%;
+}
+
+#importExport
+{
+	font-family: monospace;
+}
+
+.ioLabel>.blocklyFlyoutLabelText
+{
+	font-style: italic;
+}
+
+.blocklyFlyoutLabelText
+{
+	fill: white !important;
+}
+
+.blocklyFlyoutHeading>.blocklyFlyoutLabelText
+{
+    font-size: 1.4rem;
+}
+
+line.blocklyFlyoutLine
+{
+	stroke: white;
+}
+
+.blocklyFlyoutLabelIcon
+{
+	font-family: 'Font Awesome\ 5 Free';
+	font-size: 2.0rem;
+	font-weight: 600;
+	fill: white;
+}
+
+.blocklyTreeRow
+{
+	height: 39px !important;
+	min-width: 164px;
+	max-width: 164px;
+}
+
+#\:1>div>span.blocklyTreeIcon.blocklyTreeIconNone
+{
+	background: url('img/io_icon.png') no-repeat;
+	background-size: 100% auto;
+}
+
+.blocklyTreeIconCustom
+{
+	background: none !important;
+	font-family: 'Font Awesome\ 5 Free';
+	font-weight: 600;
+	/*font-size: 1.5rem;*/
+    /*margin: 0 .25em;*/
+    padding-top: 1px;
+	margin: 0 .25em;
+	margin-left: 25px;
+	margin-right: 5px;
+	width: 30px !important;
+	height: 100% !important;
+	line-height: 39px;
+	min-height: 39px;
+	vertical-align: middle;
+	/* 图标水平居中 */
+	text-align: center;
+}
+
+.blocklyTreeIconCustom::before
+{
+	content: "\f12e";
+}
+
+.blocklyTreeIconCustom.logic::before
+{
+	//content: "\f074";
+	content: "\f205";
+}
+
+.blocklyTreeIconCustom.loops::before
+{
+	//content: "\f01e";
+	content: "\f079";
+}
+
+.blocklyTreeIconCustom.math::before
+{
+	content: "\f1ec";
+}
+
+.blocklyTreeIconCustom.text::before
+{
+	content: "\f031";
+}
+
+.blocklyTreeIconCustom.lists::before
+{
+	content: "\f0ca";
+}
+
+.blocklyTreeIconCustom.colour::before
+{
+	content: "\f53f";
+}
+
+.blocklyTreeIconCustom.variables::before
+{
+	content: "\f0c9";
+}
+
+.blocklyTreeIconCustom.functions::before
+{
+	//content: "\f141";
+	content: "\f024";
+}
+
+.blocklyTreeIconCustom.actuator::before
+{
+	content: "\f085";
+}
+
+.blocklyTreeIconCustom.storage::before
+{
+	content: "\f1c0";
+}
+
+.blocklyTreeIconCustom.inout::before
+{
+	content: "\f362";
+}
+
+.blocklyTreeIconCustom.sensor::before
+{
+	content: "\f2ce";
+}
+
+.blocklyTreeIconCustom.communicate::before
+{
+	content: "\f086";
+}
+
+.blocklyTreeIconCustom.display::before
+{
+	content: "\f108";
+}
+
+.blocklyTreeIconCustom.control::before
+{
+	content: "\f11b";
+}
+
+.blocklyTreeIconCustom.ethernet::before
+{
+	content: "\f796";
+}
+
+.blocklyTreeIconCustom.serial::before
+{
+	content: "\f074";
+}
+
+.tabSpanOn
+{
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	background-color: #42b2e4;
+	width: 172px;
+	height: 50px;
+	color: #ffffff;
+	cursor: default;
+}
+
+.tabSpanOff
+{
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	background-color: #ffffff;
+	width: 172px;
+	height: 50px;
+	color: #000000;
+	cursor: default;
+}
+
+.tabSpanOff:hover
+{
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	background-color: #eeeeee;
+	width: 172x;
+	height: 50px;
+	color: #000000;
+	cursor: default;
+}
+
+.btnMenu
+{
+	float: right;
+	background-color: #eeeeee;
+	cursor: default;
+}
+
+.btnSpan
+{
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	background-color: #eeeeee;
+	min-width: 90px;
+	height: 50px;
+	color: #000000;
+	cursor: default;
+}
+
+.btnSpan:hover
+{
+	background-color: #42b2e4;
+	color: #ffffff;
+	cursor: default;
+}
+
+body
+{
+	overflow: hidden;
+}
+
+#editor
+{
+	margin: 0;
+	position: absolute;
+	top: 50px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
