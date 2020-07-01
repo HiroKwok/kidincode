@@ -24,4 +24,4 @@ electron .
 
 ## License
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+[GPL-3.0 (Public Domain)](LICENSE.md)
