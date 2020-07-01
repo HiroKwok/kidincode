@@ -1,18 +1,10 @@
-# electron-quick-start
+# KIDIN CODE
 
-**Clone and run for a quick way to see Electron in action.**
+**一款简约的智能硬件集成开发工具**
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+如果你是一名资深的Arduino开发者并厌倦了官方所提供的简陋开发工具，KIDIN CODE将可为你带来更舒心的体验；如果你是一名小白级的Arduino开发者，KIDIN CODE也能带你高效快速入门。
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
-
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+KIDIN CODE是由梦车间发起的开源项目，其目标是为创客群体提供一款体验友好的智能硬件集成开发工具。KIDIN CODE致力优化整体开发流程，构建简洁友好的交互界面。
 
 ## To Use
 
@@ -20,25 +12,15 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/HiroKwok/kidincode
 # Go into the repository
-cd electron-quick-start
+cd kidincode
 # Install dependencies
 npm install
 # Run the app
-npm start
+electron .
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
-
-## Resources for Learning Electron
-
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
 
 ## License
 
